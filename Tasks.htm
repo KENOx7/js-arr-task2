@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tersine Yazma</h1>
+    <input type="text" id="task1">
+    <button onclick="ok1()">Ok</button>
+    <p id="son1"></p>
+
+    <h1>5 e bolunen ededler</h1>
+    <p id="son2"></p>
+
+    <h1>1-5 araliginda Id girin</h1>
+    <input type="number" id="id">
+    <button onclick="ok3()">Ok</button>
+    <p id="son3"></p>
+
+    <script>
+        function ok1(){
+            let task1 = document.getElementById('task1').value
+            let son1 = document.getElementById('son1')
+            let x = task1.split('')
+            x.reverse('')
+            let ters = x.join('')
+            son1.innerHTML=ters
+        }
+
+        let son2 = document.getElementById('son2')
+        let task2 = []
+
+        for (let i = 5; i <= 100; i++) {
+            task2.push(i)
+            
+        }
+        let sonn2=''
+        for (let i = 0; i < task2.length; i++) {
+            if(task2[i]%5==0){
+                sonn2+=task2[i] + ', '
+            }
+        }
+        son2.innerHTML=sonn2
+
+        function ok3(){
+            const id = Number(document.getElementById('id').value)
+            const son3 = document.getElementById('son3')
+
+            const users = [
+                { ID: 1, name: "Kənan", age: 28 },
+                { ID: 2, name: "Sadiq", age: 21 },
+                { ID: 3, name: "Nurlan", age: 22 },
+                { ID: 4, name: "Emine", age: 19 },
+                { ID: 5, name: "Aysel", age: 20 }
+            ];
+
+            const user = users.find(u => u.ID === id);
+
+            if (user) {
+                son3.innerHTML = `Tapıldı <br>ID: ${user.ID}<br>Ad: ${user.name}<br>Yaş: ${user.age}`;
+            }else{
+                son3.innerHTML = `Tapılmadı`;
+                
+            }
+
+        }
+
+        
+
+    </script>
+</body>
+</html>
